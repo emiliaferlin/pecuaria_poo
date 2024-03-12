@@ -1,0 +1,12 @@
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\dao\PersistenciaJDBC.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\Situacao.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\Venda.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\Funcionario.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\Pessoa.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\Bovino.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\Pessagem.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\dao\PersistenciaJPA.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\ProjetoPecuaria.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\Cliente.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\dao\InterfacePersistencia.class
+br\edu\ifsul\cc\lpoo\projetopecuaria\modelo\Raca.class
