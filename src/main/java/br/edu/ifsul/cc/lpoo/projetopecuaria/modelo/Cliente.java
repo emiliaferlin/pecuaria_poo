@@ -5,16 +5,22 @@
 package br.edu.ifsul.cc.lpoo.projetopecuaria.modelo;
 
 import java.util.Calendar;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author Mili
  */
-public class Cliente {
+
+@Entity
+@Table(name = "tb_cliente")
+@DiscriminatorValue("C")
+public class Cliente extends Pessoa{
     private String cnpj;
     private Calendar data_ultima_compra;
     private Float valor_compras;
-    private Pessoa pessoa;
     
     public Cliente(){}
 

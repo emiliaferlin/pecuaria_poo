@@ -5,6 +5,10 @@
 package br.edu.ifsul.cc.lpoo.projetopecuaria.modelo;
 
 import java.util.Calendar;
+import java.util.Collection;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -16,6 +20,16 @@ public class Venda {
     private Float valor;
     private Calendar data;
     private String observacoes;
+    
+    
+    @ManyToMany
+    @JoinTable(name = "tb_venda_bovino", joinColumns = {@JoinColumn(name = "venda_id")}, //agregacao, vai gerar uma tabela associativa.
+                                       inverseJoinColumns = {@JoinColumn(name = "bovino_id")})
+    private Collection<Bovino> bovinos; //agregação
+    
+    private Cliente cliente; //assosiação
+    
+    private Funcionario funcionario; //assosiação
     
     public Venda(){}
 

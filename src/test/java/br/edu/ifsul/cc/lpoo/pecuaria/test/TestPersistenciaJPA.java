@@ -6,6 +6,7 @@ package br.edu.ifsul.cc.lpoo.pecuaria.test;
 
 import br.edu.ifsul.cc.lpoo.projetopecuaria.modelo.Raca;
 import br.edu.ifsul.cc.lpoo.projetopecuaria.modelo.dao.PersistenciaJPA;
+import java.util.Collection;
 import java.util.List;
 import org.junit.Test;
 
@@ -46,7 +47,7 @@ public class TestPersistenciaJPA {
                         
         }**/
         
-    @Test
+    //@Test
     public void testAlteraRegistroJPA() throws Exception{
         //criar um objeto do tipo PersistenciaJPA.
         PersistenciaJPA jpa = new PersistenciaJPA();
@@ -70,7 +71,7 @@ public class TestPersistenciaJPA {
     }
         
         
-    @Test
+    //@Test
     public void testExcluirRaca() throws Exception{
         //criar um objeto do tipo PersistenciaJPA.
         PersistenciaJPA jpa = new PersistenciaJPA();
@@ -82,6 +83,54 @@ public class TestPersistenciaJPA {
             }else{
                 System.out.println("Não encontrou");
             }
+            
+            jpa.fecharConexao();
+        }else{
+            System.out.println("nao conectou no BD ...");
+                        
+        }
+    }
+    
+    @Test
+    public void testListarRaca() throws Exception{
+        //criar um objeto do tipo PersistenciaJPA.
+        PersistenciaJPA jpa = new PersistenciaJPA();
+        if(jpa.conexaoAberta()){
+            Collection<Raca> lista = jpa.listRacas();
+            if(lista.isEmpty()){
+            
+                Raca r = new Raca();
+                r.setNome("Massa");
+                jpa.persist(r);
+                System.out.println("Raca cadastrada: " + r.getId());
+                r = new Raca();
+                r.setNome("Alado");
+                jpa.persist(r);
+                System.out.println("Raca cadastrada: " + r.getId());
+  
+            }else{
+                
+                for(Raca raca : lista){
+                    System.out.println("Racas no banco: " + raca.getNome());
+                    System.out.println("Racas no banco: " + raca.getId());
+                    
+                    
+                       
+                raca.setNome("Amarelo");
+                jpa.persist(raca);
+                System.out.println("nome alterado: " + raca.getNome());
+                jpa.remover(raca);//remove o registro a partir do objeto gerenciado (p).
+                System.out.println("nome removido: " + raca.getId());
+                    
+                    
+                }
+                
+                
+               
+                 
+                    
+                    
+            }                                   
             
             jpa.fecharConexao();
         }else{

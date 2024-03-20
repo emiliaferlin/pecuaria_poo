@@ -10,11 +10,13 @@ import java.util.Date;
  *
  * @author Mili
  */
-public class Pessagem {
+public class Pesagem {
     private Date data;
     private Float peso;
     
-    public Pessagem(){}
+    private Bovino bovino;
+    
+    public Pesagem(){}
 
     public Date getData() {
         return data;

@@ -4,6 +4,9 @@
  */
 package br.edu.ifsul.cc.lpoo.projetopecuaria.modelo.dao;
 
+import br.edu.ifsul.cc.lpoo.projetopecuaria.modelo.Raca;
+import java.util.Collection;
+
 /**
  *
  * @author Mili
@@ -16,7 +19,7 @@ public interface InterfacePersistencia {
     public Object find(Class c, Object id) throws Exception;
     public void persist(Object o) throws Exception;
     public void remover(Object o) throws Exception;
-    
+    public Collection<Raca> listRacas() throws Exception; // a gente precisa de metodos para poder chamar. serve para organizar funcionalidades
     
     
 }

@@ -6,6 +6,13 @@ package br.edu.ifsul.cc.lpoo.projetopecuaria.modelo;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Collection;
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,6 +29,18 @@ public class Bovino implements Serializable{
     private Float valor_kg_venda;
     private Float custo_diario;
     private Float valor_liquido;
+    
+    
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Situacao situacao;
+    
+    @ManyToOne
+    @JoinColumn(name = "raca_id", nullable = false)
+    private Raca raca; // associação
+    
+    @OneToMany(mappedBy = "bovino")//mappedBy deve apontar para a referencia de cliente dentro de Pet.
+    private Collection<Pesagem> pesagem; ///agregação por composição
     
     public Bovino(){}
 

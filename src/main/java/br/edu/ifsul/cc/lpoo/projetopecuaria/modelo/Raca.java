@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,6 +21,7 @@ import javax.persistence.Table;
  */
 @Entity //indica que a classe vai ser gerenciada pelo JPA
 @Table(name = "tb_raca") // indica que vai ser criada a tabela
+@NamedQueries({@NamedQuery(name="Raca.orderbyid", query="select r from Raca r order by r.id asc")})
 public class Raca implements Serializable{
     
     @Id
